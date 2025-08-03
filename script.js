@@ -305,6 +305,74 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMobileMenu();
+                    // ===============================================
+// AUTO-ANIMATE TIMELINE ITEMS - ظهور تلقائي
+// ===============================================
+
+// 1. إزالة الانيميشن المرتبط بالإنتراسكشن أوبزرفر واستبداله بهذا
+function autoAnimateTimelineItems() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item, index) => {
+        // تأخير تدريجي لكل عنصر
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+            item.style.transition = 'all 0.6s ease-out';
+        }, 800 + (index * 200)); // بداية بعد 800ms ثم كل 200ms
+    });
+}
+
+// 2. تشغيل الانيميشن عند تحميل الصفحة
+window.addEventListener('load', function() {
+    setTimeout(autoAnimateTimelineItems, 1500); // بداية بعد 1.5 ثانية من التحميل
+});
+
+// 3. تشغيل إضافي عند وصول المستخدم للقسم (احتياطي)
+function setupAutoTimelineObserver() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.classList.contains('history-section')) {
+                // التأكد من أن العناصر ظهرت، وإذا لم تظهر بعد، تشغيل الانيميشن
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                const isAnyItemHidden = Array.from(timelineItems).some(item => 
+                    item.style.opacity === '0' || item.style.opacity === ''
+                );
+                
+                if (isAnyItemHidden) {
+                    autoAnimateTimelineItems();
+                }
+                
+                observer.unobserve(entry.target); // تشغيل مرة واحدة فقط
             }
         });
+    }, { threshold: 0.3 });
+
+    const historySection = document.querySelector('.history-section');
+    if (historySection) {
+        observer.observe(historySection);
+    }
+}
+
+// 4. تشغيل المراقب الاحتياطي
+document.addEventListener('DOMContentLoaded', setupAutoTimelineObserver);
+
+// 5. تحسين إضافي - تشغيل فوري إذا كان القسم مرئياً عند التحميل
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const historySection = document.querySelector('.history-section');
+        if (historySection) {
+            const rect = historySection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isVisible) {
+                autoAnimateTimelineItems();
+            }
+        }
+    }, 2000); // فحص بعد ثانيتين من التحميل
+});
+
+            }
+        });
+
     
