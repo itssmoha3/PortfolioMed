@@ -1,9 +1,9 @@
-<html lang="en" dir="ltr"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <style>
+<html dir="ltr" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -1032,9 +1032,27 @@
             left: 20px;
             top: 0;
             bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #ff6b35, #6c5ce7);
+            width: 4px;
+            background: linear-gradient(to bottom, 
+                #ff6b35 0%, 
+                #f7931e 25%, 
+                #6c5ce7 50%, 
+                #a29bfe 75%, 
+                #ff6b35 100%);
             border-radius: 2px;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+            animation: timelineGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes timelineGlow {
+            from { 
+                box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+                transform: scaleY(1);
+            }
+            to { 
+                box-shadow: 0 0 25px rgba(108, 92, 231, 0.6);
+                transform: scaleY(1.02);
+            }
         }
 
         .timeline-item {
@@ -1067,17 +1085,31 @@
             position: absolute;
             left: -32px;
             top: 30px;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 0 0 4px rgba(255, 107, 53, 0.2),
+                0 0 20px rgba(255, 107, 53, 0.5);
             animation: timelinePulse 2s ease-in-out infinite;
+            z-index: 2;
         }
 
         @keyframes timelinePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 107, 53, 0.5); }
-            50% { transform: scale(1.2); box-shadow: 0 0 30px rgba(255, 107, 53, 0.8); }
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 
+                    0 0 0 4px rgba(255, 107, 53, 0.2),
+                    0 0 20px rgba(255, 107, 53, 0.5); 
+            }
+            50% { 
+                transform: scale(1.2); 
+                box-shadow: 
+                    0 0 0 6px rgba(255, 107, 53, 0.3),
+                    0 0 30px rgba(255, 107, 53, 0.8); 
+            }
         }
 
         .timeline-logo {
@@ -1238,6 +1270,182 @@
         .portfolio-item img:active {
             transform: scale(0.98);
             transition: transform 0.1s ease;
+        }
+
+        /* Social Media Design Section Styles */
+        .social-media-section {
+            padding: 20px 0;
+        }
+
+        .section-title {
+            color: #2d3436;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #6c5ce7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: #636e72;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .social-media-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .gallery-category {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .gallery-category:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .category-title {
+            color: #2d3436;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        .social-image-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: socialItemFadeIn 0.6s ease forwards;
+        }
+
+        .social-image-item:nth-child(1) { animation-delay: 0.1s; }
+        .social-image-item:nth-child(2) { animation-delay: 0.2s; }
+        .social-image-item:nth-child(3) { animation-delay: 0.3s; }
+        .social-image-item:nth-child(4) { animation-delay: 0.4s; }
+        .social-image-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes socialItemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-image-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.4s ease;
+            border-radius: 20px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.7) 0%, 
+                rgba(0, 0, 0, 0.5) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 20px;
+        }
+
+        .social-image-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .social-image-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .overlay-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .overlay-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+            color: #f1f2f6;
+        }
+
+        /* Parallax Effect for Social Media Images */
+        .social-image-item {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .social-image-item:hover img {
+            transform: rotateY(5deg) rotateX(5deg);
         }
 
         /* Spacer sections */
@@ -1897,458 +2105,2640 @@
             }
         }
     </style>
-</head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(-45deg, 
+                #ffffff 0%, 
+                #fef7ff 15%, 
+                #fff8e1 30%, 
+                #f3e5f5 45%, 
+                #ffffff 60%, 
+                #e8f5e8 75%, 
+                #fff3e0 90%, 
+                #ffffff 100%);
+            background-size: 300% 300%;
+            animation: gradientShift 40s ease infinite;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* خلفية النسخة الأولى المحسنة */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(78, 205, 196, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 25% 75%, rgba(255, 193, 7, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(156, 39, 176, 0.05) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.03) 50%, transparent 60%),
+                linear-gradient(-45deg, transparent 40%, rgba(255, 255, 255, 0.02) 50%, transparent 60%);
+            background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px, 100px 100px, 120px 120px;
+            animation: patternMove 60s ease-in-out infinite;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        @keyframes patternMove {
+            0%, 100% {
+                background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0%, 0% 0%, 100% 100%;
+            }
+            50% {
+                background-position: 20% 20%, 80% 80%, 20% 80%, 80% 20%, 10% 10%, 90% 90%;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* العناصر الطائفة من النسخة الأولى */
+        .bg-shape {
+            position: fixed;
+            opacity: 0.02;
+            animation: floatShape 60s ease-in-out infinite;
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .bg-shape:nth-child(1) {
+            top: 5%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ffcdd2 0%, #f8bbd9 50%, transparent 70%);
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .bg-shape:nth-child(2) {
+            top: 50%;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #c8e6c9 0%, #dcedc8 50%, transparent 70%);
+            border-radius: 60% 40% 60% 40% / 60% 30% 70% 40%;
+            animation-delay: -20s;
+        }
+
+        .bg-shape:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #fff9c4 0%, #f0f4c3 50%, transparent 70%);
+            border-radius: 50%;
+            animation-delay: -40s;
+        }
+
+        .bg-shape:nth-child(4) {
+            top: 25%;
+            left: 40%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #e1bee7 0%, #f3e5f5 50%, transparent 70%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: -10s;
+        }
+
+        .bg-shape:nth-child(5) {
+            bottom: 30%;
+            right: 20%;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, #bbdefb 0%, #e3f2fd 50%, transparent 70%);
+            border-radius: 50%;
+            animation-delay: -30s;
+        }
+
+        .bg-shape:nth-child(6) {
+            top: 70%;
+            left: 60%;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, #ffccbc 0%, #ffe0b2 50%, transparent 70%);
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            animation-delay: -50s;
+        }
+
+        @keyframes floatShape {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+                opacity: 0.02;
+            }
+            25% {
+                transform: translateY(-20px) translateX(15px) rotate(45deg) scale(1.05);
+                opacity: 0.03;
+            }
+            50% {
+                transform: translateY(-15px) translateX(-10px) rotate(90deg) scale(0.95);
+                opacity: 0.015;
+            }
+            75% {
+                transform: translateY(20px) translateX(25px) rotate(135deg) scale(1.02);
+                opacity: 0.025;
+            }
+        }
+
+        /* Desktop Navbar - محسن */
+        .navbar {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.35) 0%, 
+                rgba(255, 255, 255, 0.25) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0 30px;
+        }
+
+        .navbar li {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            color: #6c5ce7;
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 150%;
+            left: -350%;
+            transform: translateX(0);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.45) 0%, 
+                rgba(255, 255, 255, 0.35) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 18px;
+            margin-top: 20px;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .dropdown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+        }
+
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 60px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid rgba(255, 255, 255, 0.4);
+            filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .navbar li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .dropdown li {
+            margin: 0;
+            position: relative;
+            flex: none;
+            display: block;
+        }
+
+        .dropdown a {
+            padding: 14px 22px;
+            border-radius: 12px;
+            margin: 6px 10px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: calc(100% - 20px);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: right;
+        }
+
+        .dropdown a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #6c5ce7;
+        }
+
+        .dropdown a::before {
+            content: '•';
+            margin-left: 8px;
+            color: #ff6b35;
+            font-weight: bold;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown a:hover::before {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* Mobile Hamburger Menu */
+        .hamburger-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.3) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hamburger-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .hamburger-line {
+            width: 18px;
+            height: 2px;
+            background: #2d3436;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: #2d3436;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideInUp 0.5s ease forwards;
+        }
+
+        .mobile-menu a:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu a:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-menu a:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-menu a:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-menu a:nth-child(5) { animation-delay: 0.5s; }
+        .mobile-menu a:nth-child(6) { animation-delay: 0.6s; }
+        .mobile-menu a:nth-child(7) { animation-delay: 0.7s; }
+        .mobile-menu a:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes slideInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+        }
+
+        .mobile-menu-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #6c5ce7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Timeline Navigation */
+        .timeline-nav {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-item-nav {
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            opacity: 0.4;
+        }
+
+        .timeline-item-nav.active {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-color: #ff6b35;
+            transform: scale(1.3);
+            opacity: 1;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .timeline-item-nav:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+            border-color: rgba(255, 107, 53, 0.5);
+        }
+
+        .timeline-item-nav:hover::before {
+            content: attr(data-label);
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 255, 255, 0.85) 100%);
+            backdrop-filter: blur(15px);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            color: #2d3436;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+        }
+
+        /* القسم الرئيسي مع الصورتين */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px 20px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .main-title {
+            flex: 1;
+            max-width: 60%;
+            height: auto;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation-delay: 0.5s;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+            transition: transform 0.5s ease;
+        }
+
+        .main-title:hover {
+            transform: scale(1.02);
+        }
+
+        .author-photo {
+            flex: 1;
+            max-width: 35%;
+            height: auto;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateX(50px);
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.12));
+            animation: slideInRight 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation-delay: 0.8s;
+            transition: all 0.4s ease;
+        }
+
+        .author-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+            color: #6c5ce7;
+            font-weight: 500;
+        }
+
+        .scroll-hint i {
+            animation: bounce 2s infinite;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        /* أنيميشن جديدة */
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* About Section - القسم المدمج الجديد */
+        .about-section {
+            padding: 40px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25) 0%, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.5) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.4) 100%) 1;
+            border-radius: 30px;
+            box-shadow: 
+                0 15px 45px rgba(0, 0, 0, 0.08),
+                0 5px 15px rgba(0, 0, 0, 0.04),
+                inset 0 2px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -2px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.8) 50%, 
+                transparent 100%);
+        }
+
+        /* Header Section */
+        .about-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            animation: slideInLeft 1s ease 0.3s both;
+        }
+
+        .about-photo {
+            position: relative;
+            animation: slideInRight 1s ease 0.5s both;
+        }
+
+        /* صورة الملف الشخصي المعدلة - إزالة الدائرة */
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: transparent url('ana.png') center/contain no-repeat;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            /* إزالة جميع التأثيرات المضيئة والحدود */
+            box-shadow: none;
+            border: none;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: none;
+        }
+
+        /* إزالة العناصر الإضافية */
+        .profile-image::before,
+        .profile-image::after {
+            display: none !important;
+        }
+
+        /* Name and Title */
+        .name-section {
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff6b35 0%, #6c5ce7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(108, 92, 231, 0.3)); }
+        }
+
+        .title-description {
+            font-size: 1.4rem;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .typing-text {
+            border-right: 2px solid #ff6b35;
+            animation: blinkCursor 1s infinite;
+        }
+
+        @keyframes blinkCursor {
+            0%, 50% { border-color: #ff6b35; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .bio-text {
+            color: #2d3436;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(255, 107, 53, 0.2) 0%, rgba(255, 107, 53, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #ff6b35;
+        }
+
+        /* Skills Section - محسن مع جميع الإضافات */
+        .skills-section {
+            margin: 50px 0;
+            animation: slideInUp 1s ease 0.7s both;
+        }
+
+        .skills-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .skills-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #6c5ce7);
+            border-radius: 2px;
+            animation: titleUnderline 2s ease-in-out infinite;
+        }
+
+        @keyframes titleUnderline {
+            0%, 100% { width: 120px; }
+            50% { width: 150px; }
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25) 0%, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+            transform-style: preserve-3d;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            transition: left 0.8s ease;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-15px) rotateY(5deg) rotateX(5deg);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.35) 0%, 
+                rgba(255, 255, 255, 0.25) 50%, 
+                rgba(255, 255, 255, 0.3) 100%);
+            box-shadow: 
+                0 25px 60px rgba(255, 107, 53, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 107, 53, 0.4);
+        }
+
+        /* Skills Logo - الصور المخصصة */
+        .skill-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-logo.illustrator { background-image: url('illustrator.png'); }
+        .skill-logo.photoshop { background-image: url('photoshop.png'); }
+        .skill-logo.premiere { background-image: url('premiere.png'); }
+        .skill-logo.aftereffects { background-image: url('aftereffects.png'); }
+        .skill-logo.office { background-image: url('office.png'); }
+        .skill-logo.ai-tool { background-image: url('ai.png'); }
+        .skill-logo.sketchup { background-image: url('sketchup.png'); }
+        .skill-logo.blender { background-image: url('blender.png'); }
+        .skill-logo.cinema4d { background-image: url('cinema4d.png'); }
+
+        .skill-item:hover .skill-logo {
+            transform: scale(1.1) rotateY(360deg);
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        /* تحسين طريقة عرض النسب المئوية */
+        .skill-progress-container {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .skill-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 50%, #6c5ce7 100%);
+            border-radius: 10px;
+            transition: width 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+        }
+
+        .skill-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-percentage-text {
+            position: absolute;
+            top: -35px;
+            right: 0;
+            font-weight: 700;
+            color: #ff6b35;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 12px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .skill-item:hover .skill-percentage-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* نقاط المهارات */
+        .skill-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .skill-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-dot.active {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+            animation: dotPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* History Section - مع الصور المضافة */
+        .history-section {
+            margin: 50px 0;
+            animation: slideInUp 1s ease 0.9s both;
+        }
+
+        .history-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .history-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, 
+                #ff6b35 0%, 
+                #f7931e 25%, 
+                #6c5ce7 50%, 
+                #a29bfe 75%, 
+                #ff6b35 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+            animation: timelineGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes timelineGlow {
+            from { 
+                box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+                transform: scaleY(1);
+            }
+            to { 
+                box-shadow: 0 0 25px rgba(108, 92, 231, 0.6);
+                transform: scaleY(1.02);
+            }
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateX(50px);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(15px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 30px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 0 0 4px rgba(255, 107, 53, 0.2),
+                0 0 20px rgba(255, 107, 53, 0.5);
+            animation: timelinePulse 2s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes timelinePulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 
+                    0 0 0 4px rgba(255, 107, 53, 0.2),
+                    0 0 20px rgba(255, 107, 53, 0.5); 
+            }
+            50% { 
+                transform: scale(1.2); 
+                box-shadow: 
+                    0 0 0 6px rgba(255, 107, 53, 0.3),
+                    0 0 30px rgba(255, 107, 53, 0.8); 
+            }
+        }
+
+        .timeline-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-company {
+            color: #636e72;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        /* Education Section */
+        .education-section {
+            margin: 50px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: slideInUp 1s ease 1.1s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff6b35, #f7931e);
+        }
+
+        .education-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 15px;
+            margin-left: 20px;
+        }
+
+        .education-text {
+            color: #636e72;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-left: 20px;
+        }
+
+        .education-highlight {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        /* Single Long Glass Container for Other Images */
+        .glass-container {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25) 0%, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.5) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.4) 100%) 1;
+            border-radius: 30px;
+            box-shadow: 
+                0 15px 45px rgba(0, 0, 0, 0.08),
+                0 5px 15px rgba(0, 0, 0, 0.04),
+                inset 0 2px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -2px 0 rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.8) 50%, 
+                transparent 100%);
+        }
+
+        .portfolio-item {
+            margin-bottom: 60px;
+            scroll-margin-top: 120px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .portfolio-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .portfolio-item img {
+            width: 85%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            border-radius: 18px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .portfolio-item img:hover,
+        .portfolio-item img:active {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .portfolio-item img:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease;
+        }
+
+        /* Social Media Design Section Styles */
+        .social-media-section {
+            padding: 20px 0;
+        }
+
+        .section-title {
+            color: #2d3436;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #6c5ce7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: #636e72;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .social-media-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .gallery-category {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .gallery-category:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .category-title {
+            color: #2d3436;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        .social-image-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: socialItemFadeIn 0.6s ease forwards;
+        }
+
+        .social-image-item:nth-child(1) { animation-delay: 0.1s; }
+        .social-image-item:nth-child(2) { animation-delay: 0.2s; }
+        .social-image-item:nth-child(3) { animation-delay: 0.3s; }
+        .social-image-item:nth-child(4) { animation-delay: 0.4s; }
+        .social-image-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes socialItemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-image-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.4s ease;
+            border-radius: 20px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.7) 0%, 
+                rgba(0, 0, 0, 0.5) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 20px;
+        }
+
+        .social-image-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .social-image-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .overlay-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .overlay-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+            color: #f1f2f6;
+        }
+
+        /* Parallax Effect for Social Media Images */
+        .social-image-item {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .social-image-item:hover img {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Spacer sections */
+        .spacer {
+            height: 300px;
+        }
+
+        .footer-spacer {
+            height: 200px;
+        }
+
+        /* Enhanced Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.25) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.6) 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0.5) 100%) 1;
+            border-radius: 30px;
+            box-shadow: 
+                0 15px 45px rgba(0, 0, 0, 0.08),
+                0 5px 15px rgba(0, 0, 0, 0.04),
+                inset 0 2px 0 rgba(255, 255, 255, 0.7),
+                inset 0 -2px 0 rgba(255, 255, 255, 0.3);
+            padding: 50px 40px 40px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 120px;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.9) 50%, 
+                transparent 100%);
+        }
+
+        .contact-title {
+            color: #2d3436;
+            font-size: 2.6rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 0 2px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-subtitle {
+            color: #636e72;
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            text-shadow: 0 1px 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            margin: 35px 0;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.25) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            border-radius: 22px;
+            text-decoration: none;
+            color: #2d3436;
+            font-size: 1.6rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.6), 
+                transparent);
+            border-radius: 22px 22px 0 0;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        /* Social Media Colors */
+        .social-link.facebook:hover {
+            background: linear-gradient(135deg, #1877f2 0%, #0d5bd9 100%);
+            color: white;
+            border-color: rgba(24, 119, 242, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(24, 119, 242, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(135deg, 
+                #f09433 0%, 
+                #e6683c 25%, 
+                #dc2743 50%, 
+                #cc2366 75%, 
+                #bc1888 100%);
+            color: white;
+            border-color: rgba(228, 64, 95, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(228, 64, 95, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .social-link.whatsapp:hover {
+            background: linear-gradient(135deg, #25d366 0%, #1da851 100%);
+            color: white;
+            border-color: rgba(37, 211, 102, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(37, 211, 102, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link.behance:hover {
+            background: linear-gradient(135deg, #1769ff 0%, #0052cc 100%);
+            color: white;
+            border-color: rgba(23, 105, 255, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(23, 105, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link.linkedin:hover {
+            background: linear-gradient(135deg, #0077b5 0%, #005582 100%);
+            color: white;
+            border-color: rgba(0, 119, 181, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(0, 119, 181, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link.email:hover {
+            background: linear-gradient(135deg, #ea4335 0%, #c23321 100%);
+            color: white;
+            border-color: rgba(234, 67, 53, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(234, 67, 53, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-credit {
+            text-align: center;
+            margin-top: 30px;
+            color: #636e72;
+            font-size: 12px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.3) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            color: #2d3436;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Loading Animation محسن */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, 
+                #ffffff 0%, 
+                #fef7ff 25%, 
+                #fff8e1 50%, 
+                #f3e5f5 75%, 
+                #ffffff 100%);
+            background-size: 300% 300%;
+            animation: gradientShift 40s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .creative-loader {
+            position: relative;
+            z-index: 1;
+        }
+
+        .letter-m {
+            font-size: 120px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #6c5ce7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            animation: letterGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes letterGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(255, 107, 53, 0.8));
+                transform: scale(1.02);
+            }
+        }
+
+        .loading-particles {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            animation: particleFloat 4s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 0.8s;
+        }
+
+        .particle:nth-child(3) {
+            bottom: 25%;
+            left: 20%;
+            animation-delay: 1.6s;
+        }
+
+        .particle:nth-child(4) {
+            bottom: 35%;
+            right: 10%;
+            animation-delay: 2.4s;
+        }
+
+        .particle:nth-child(5) {
+            top: 50%;
+            left: 50%;
+            animation-delay: 3.2s;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(0.8);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-15px) scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .loading-text {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #6c5ce7;
+            font-size: 16px;
+            font-weight: 500;
+            animation: textPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes textPulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.4);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9a9e, #fecfef, #fecfef);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            animation: float 20s ease-in-out infinite;
+            filter: blur(20px);
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 140px;
+            height: 140px;
+            top: 12%;
+            left: 6%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 52%;
+            right: 10%;
+            animation-delay: 7s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 15%;
+            left: 22%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.08;
+            }
+            50% {
+                transform: translateY(-20px) rotate(90deg) scale(1.05);
+                opacity: 0.04;
+            }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+            }
+
+            .dropdown {
+                display: none !important;
+            }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .timeline-nav {
+                right: 15px;
+                gap: 18px;
+            }
+
+            .timeline-item-nav {
+                width: 12px;
+                height: 12px;
+            }
+
+            .hero-section {
+                min-height: 100vh;
+                padding: 60px 15px 20px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .main-title {
+                max-width: 95%;
+                animation: fadeIn 1.2s ease forwards;
+                animation-delay: 0.5s;
+                transform: none;
+            }
+
+            .author-photo {
+                max-width: 80%;
+                animation: fadeIn 1.2s ease forwards;
+                animation-delay: 0.8s;
+                transform: none;
+            }
+
+            .scroll-hint {
+                font-size: 14px;
+                bottom: 20px;
+            }
+
+            .container {
+                padding: 20px 15px 15px;
+            }
+
+            .about-section { 
+                padding: 25px; 
+            }
+            .about-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .profile-image { width: 200px; height: 200px; }
+            .name { font-size: 2.5rem; }
+            .skills-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                gap: 20px;
+            }
+            .timeline { padding-left: 30px; }
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .glass-container {
+                padding: 25px 20px;
+                border-radius: 25px;
+            }
+
+            .contact-section {
+                padding: 35px 25px 30px;
+                border-radius: 26px;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                gap: 15px;
+            }
+
+            .social-link {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+                border-radius: 16px;
+            }
+
+            .portfolio-item img {
+                width: 95%;
+                border-radius: 14px;
+            }
+
+            .bg-shape {
+                opacity: 0.01;
+            }
+
+            .letter-m {
+                font-size: 80px;
+            }
+
+            .loading-particles {
+                width: 150px;
+                height: 150px;
+            }
+
+            @media (hover: none) and (pointer: coarse) {
+                .portfolio-item img:hover {
+                    transform: none;
+                }
+                
+                .social-link:hover {
+                    transform: none;
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hamburger-btn {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .hamburger-line {
+                width: 16px;
+            }
+
+            .mobile-menu a {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+
+            .mobile-menu-title {
+                font-size: 20px;
+            }
+
+            .hero-section {
+                padding: 50px 10px 20px;
+            }
+
+            .main-title {
+                max-width: 98%;
+            }
+
+            .author-photo {
+                max-width: 90%;
+            }
+
+            .container {
+                padding: 15px 10px 10px;
+            }
+
+            .about-section { 
+                padding: 20px 15px; 
+            }
+            .profile-image { width: 160px; height: 160px; }
+            .name { font-size: 2rem; }
+            .skills-grid { grid-template-columns: 1fr; gap: 20px; }
+
+            .glass-container {
+                padding: 20px 15px;
+                margin: 25px 0;
+                border-radius: 20px;
+            }
+
+            .contact-section {
+                padding: 30px 20px 25px;
+                border-radius: 22px;
+            }
+
+            .contact-title {
+                font-size: 1.8rem;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                border-radius: 14px;
+            }
+
+            .letter-m {
+                font-size: 60px;
+            }
+
+            .loading-particles {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style></head>
 <body>
-    <!-- خلفية متحركة -->
-    <div class="bg-shape"></div>
-    <div class="bg-shape"></div>
-    <div class="bg-shape"></div>
-    <div class="bg-shape"></div>
-    <div class="bg-shape"></div>
-    <div class="bg-shape"></div>
-
-    <!-- Desktop Navbar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
-            <li><a href="#about" onclick="scrollToSection('about')">About</a></li>
-            <li>
-                <a href="#">Portfolio</a>
-                <ul class="dropdown">
-                    <li><a href="#posters" onclick="scrollToSection('posters')">Posters</a></li>
-                    <li><a href="#logos" onclick="scrollToSection('logos')">Logos</a></li>
-                    <li><a href="#" onclick="showComingSoon('Branding')">Branding</a></li>
-                    <li><a href="#" onclick="showComingSoon('Social Media Design')">Social Media Design</a></li>
-                    <li><a href="#" onclick="showComingSoon('UI/UX')">UI/UX</a></li>
-                </ul>
-            </li>
-            <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" onclick="toggleMobileMenu()">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-    </button>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <h2 class="mobile-menu-title">Menu</h2>
-            <a href="#home" onclick="scrollToSection('home'); closeMobileMenu()">Home</a>
-            <a href="#about" onclick="scrollToSection('about'); closeMobileMenu()">About</a>
-            <a href="#posters" onclick="scrollToSection('posters'); closeMobileMenu()">Posters</a>
-            <a href="#logos" onclick="scrollToSection('logos'); closeMobileMenu()">Logos</a>
-            <a href="#" onclick="showComingSoon('Branding'); closeMobileMenu()">Branding</a>
-            <a href="#" onclick="showComingSoon('Social Media Design'); closeMobileMenu()">Social Media Design</a>
-            <a href="#" onclick="showComingSoon('UI/UX'); closeMobileMenu()">UI/UX</a>
-            <a href="#contact" onclick="scrollToSection('contact'); closeMobileMenu()">Contact</a>
-        </div>
-    </div>
-
-    <!-- Timeline Navigation -->
-    <div class="timeline-nav">
-        <div class="timeline-item-nav active" data-label="Home" onclick="scrollToSection('home')"></div>
-        <div class="timeline-item-nav" data-label="About" onclick="scrollToSection('about')"></div>
-        <div class="timeline-item-nav" data-label="Posters" onclick="scrollToSection('posters')"></div>
-        <div class="timeline-item-nav" data-label="Logos" onclick="scrollToSection('logos')"></div>
-        <div class="timeline-item-nav" data-label="Contact" onclick="scrollToSection('contact')"></div>
-    </div>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <!-- Creative M Loading Animation -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="creative-loader">
-            <div class="loading-particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
-            <div class="letter-m">M</div>
-            <div class="loading-text">Loading...</div>
-        </div>
-    </div>
-
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
-
-    <div class="floating-elements">
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-    </div>
-
-    <!-- القسم الرئيسي مع الصورتين جنباً إلى جنب -->
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <img src="moportfolio.png" alt="Mohamed's Portfolio" class="main-title">
-            <img src="mophoto.png" alt="Mohamed Taieb-Ezzraimi" class="author-photo">
-        </div>
-        <div class="scroll-hint">
+<!-- خلفية متحركة -->
+<div class="bg-shape"></div>
+<div class="bg-shape"></div>
+<div class="bg-shape"></div>
+<div class="bg-shape"></div>
+<div class="bg-shape"></div>
+<div class="bg-shape"></div>
+<!-- Desktop Navbar -->
+<nav class="navbar">
+<ul>
+<li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+<li><a href="#about" onclick="scrollToSection('about')">About</a></li>
+<li>
+<a href="#">Portfolio</a>
+<ul class="dropdown">
+<li><a href="#posters" onclick="scrollToSection('posters')">Posters</a></li>
+<li><a href="#logos" onclick="scrollToSection('logos')">Logos</a></li>
+<li><a href="#" onclick="showComingSoon('Branding')">Branding</a></li>
+<li><a href="#social-media" onclick="scrollToSection('social-media')">Social Media Design</a></li>
+<li><a href="#" onclick="showComingSoon('UI/UX')">UI/UX</a></li>
+</ul>
+</li>
+<li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+</ul>
+</nav>
+<!-- Mobile Hamburger Button -->
+<button class="hamburger-btn" onclick="toggleMobileMenu()">
+<div class="hamburger-line"></div>
+<div class="hamburger-line"></div>
+<div class="hamburger-line"></div>
+</button>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-content">
+<h2 class="mobile-menu-title">Menu</h2>
+<a href="#home" onclick="scrollToSection('home'); closeMobileMenu()">Home</a>
+<a href="#about" onclick="scrollToSection('about'); closeMobileMenu()">About</a>
+<a href="#posters" onclick="scrollToSection('posters'); closeMobileMenu()">Posters</a>
+<a href="#logos" onclick="scrollToSection('logos'); closeMobileMenu()">Logos</a>
+<a href="#" onclick="showComingSoon('Branding'); closeMobileMenu()">Branding</a>
+<a href="#social-media" onclick="scrollToSection('social-media'); closeMobileMenu()">Social Media Design</a>
+<a href="#" onclick="showComingSoon('UI/UX'); closeMobileMenu()">UI/UX</a>
+<a href="#contact" onclick="scrollToSection('contact'); closeMobileMenu()">Contact</a>
+</div>
+</div>
+<!-- Timeline Navigation -->
+<div class="timeline-nav">
+<div class="timeline-item-nav active" data-label="Home" onclick="scrollToSection('home')"></div>
+<div class="timeline-item-nav" data-label="About" onclick="scrollToSection('about')"></div>
+<div class="timeline-item-nav" data-label="Posters" onclick="scrollToSection('posters')"></div>
+<div class="timeline-item-nav" data-label="Logos" onclick="scrollToSection('logos')"></div>
+<div class="timeline-item-nav" data-label="Social Media" onclick="scrollToSection('social-media')"></div>
+<div class="timeline-item-nav" data-label="Contact" onclick="scrollToSection('contact')"></div>
+</div>
+<!-- Back to Top Button -->
+<div class="back-to-top" onclick="scrollToTop()">
+<i class="fas fa-arrow-up"></i>
+</div>
+<!-- Creative M Loading Animation -->
+<div class="loading-overlay" id="loadingOverlay">
+<div class="creative-loader">
+<div class="loading-particles">
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+</div>
+<div class="letter-m">M</div>
+<div class="loading-text">Loading...</div>
+</div>
+</div>
+<div class="scroll-indicator">
+<div class="scroll-progress" id="scrollProgress"></div>
+</div>
+<div class="floating-elements">
+<div class="floating-circle"></div>
+<div class="floating-circle"></div>
+<div class="floating-circle"></div>
+</div>
+<!-- القسم الرئيسي مع الصورتين جنباً إلى جنب -->
+<section class="hero-section" id="home">
+<div class="hero-content">
+<img alt="Mohamed's Portfolio" class="main-title" src="moportfolio.png"/>
+<img alt="Mohamed Taieb-Ezzraimi" class="author-photo" src="mophoto.png"/>
+</div>
+<div class="scroll-hint">
             Scroll down to explore my work
             <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <div class="container">
-        <!-- About Section - القسم المدمج الكامل مع جميع الإضافات -->
-        <div class="about-section" id="about">
-            <!-- Header with Name and Info -->
-            <div class="about-header">
-                <div class="about-text">
-                    <div class="name-section">
-                        <h1 class="name">Mohamed Taieb-Ezzraimi</h1>
-                        <p class="title-description">
-                            <span class="typing-text">Visual communicator from the heart of Algeria (born 2003), based in Milano, Italy</span>
-                        </p>
-                    </div>
-                    
-                    <div class="bio-text">
-                        <p>I transform ideas into lasting visual designs and stories into expressive colors. Some call me a "graphic designer" but I see myself as a <span class="highlight">visual problem solver</span>.</p>
-                        
-                        <p><span class="highlight">Five (5) years</span> of design have taught me that creativity isn't luxury—it's a <span class="highlight">language to communicate with the world</span>.</p>
-                    </div>
-                </div>
-                
-                <div class="about-photo">
-                    <div class="profile-image"></div>
-                </div>
-            </div>
-
-            <!-- Skills Section المحسن مع جميع البرامج والصور -->
-            <div class="skills-section">
-                <h2 class="skills-title">Skills.</h2>
-                <div class="skills-grid">
-                    <!-- Adobe Illustrator -->
-                    <div class="skill-item" data-skill="95">
-                        <div class="skill-logo illustrator"></div>
-                        <div class="skill-name">Adobe Illustrator</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="95%"></div>
-                            </div>
-                            <div class="skill-percentage-text">95%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Adobe Photoshop -->
-                    <div class="skill-item" data-skill="90">
-                        <div class="skill-logo photoshop"></div>
-                        <div class="skill-name">Adobe Photoshop</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="90%"></div>
-                            </div>
-                            <div class="skill-percentage-text">90%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Premiere Pro -->
-                    <div class="skill-item" data-skill="85">
-                        <div class="skill-logo premiere"></div>
-                        <div class="skill-name">Premiere Pro</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="85%"></div>
-                            </div>
-                            <div class="skill-percentage-text">85%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- After Effects -->
-                    <div class="skill-item" data-skill="75">
-                        <div class="skill-logo aftereffects"></div>
-                        <div class="skill-name">After Effects</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="75%"></div>
-                            </div>
-                            <div class="skill-percentage-text">75%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Microsoft Office -->
-                    <div class="skill-item" data-skill="80">
-                        <div class="skill-logo office"></div>
-                        <div class="skill-name">Microsoft Office</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="80%"></div>
-                            </div>
-                            <div class="skill-percentage-text">80%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-
-                    <!-- AI Tools -->
-                    <div class="skill-item" data-skill="85">
-                        <div class="skill-logo ai-tool"></div>
-                        <div class="skill-name">Artificial Intelligence</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="85%"></div>
-                            </div>
-                            <div class="skill-percentage-text">85%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- SketchUp - نسبة محدثة 40% -->
-                    <div class="skill-item" data-skill="40">
-                        <div class="skill-logo sketchup"></div>
-                        <div class="skill-name">SketchUp</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="40%"></div>
-                            </div>
-                            <div class="skill-percentage-text">40%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-
-                    <!-- Blender - جديد 20% -->
-                    <div class="skill-item" data-skill="20">
-                        <div class="skill-logo blender"></div>
-                        <div class="skill-name">Blender</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="20%"></div>
-                            </div>
-                            <div class="skill-percentage-text">20%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-
-                    <!-- Cinema 4D - جديد 20% -->
-                    <div class="skill-item" data-skill="20">
-                        <div class="skill-logo cinema4d"></div>
-                        <div class="skill-name">Cinema 4D</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 0%;" data-width="20%"></div>
-                            </div>
-                            <div class="skill-percentage-text">20%</div>
-                        </div>
-                        <div class="skill-dots">
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot active"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                            <div class="skill-dot"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- History Section مع شعارات الشركات -->
-            <div class="history-section">
-                <h2 class="history-title">History.</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <img src="free.png" alt="Freelancer logo" class="timeline-logo">
-                        <div class="timeline-content">
-                            <div class="timeline-date">2019 - Present</div>
-                            <div class="timeline-title">Freelance Graphic Designer / Video Editor</div>
-                            <div class="timeline-company">Independent</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <img src="advision.png" alt="Advision logo" class="timeline-logo">
-                        <div class="timeline-content">
-                            <div class="timeline-date">2021 - 2024</div>
-                            <div class="timeline-title">Graphic Designer</div>
-                            <div class="timeline-company">Advision El Djazair</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <img src="ppo.png" alt="Pro Pub One logo" class="timeline-logo">
-                        <div class="timeline-content">
-                            <div class="timeline-date">2023 - Present</div>
-                            <div class="timeline-title">Graphic Designer</div>
-                            <div class="timeline-company">Pro Pub One</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <img src="mk.png" alt="M&amp;K Netherlands logo" class="timeline-logo">
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - Present</div>
-                            <div class="timeline-title">Graphic Designer</div>
-                            <div class="timeline-company">M&amp;K Netherlands</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education Section -->
-            <div class="education-section">
-                <h3 class="education-title">Education</h3>
-                <p class="education-text">
+</div>
+</section>
+<div class="container">
+<!-- About Section - القسم المدمج الكامل مع جميع الإضافات -->
+<div class="about-section" id="about">
+<!-- Header with Name and Info -->
+<div class="about-header">
+<div class="about-text">
+<div class="name-section">
+<h1 class="name">Mohamed Taieb-Ezzraimi</h1>
+<p class="title-description">
+<span class="typing-text">Visual communicator from the heart of Algeria (born 2003), based in Milano, Italy</span>
+</p>
+</div>
+<div class="bio-text">
+<p>I transform ideas into lasting visual designs and stories into expressive colors. Some call me a "graphic designer" but I see myself as a <span class="highlight">visual problem solver</span>.</p>
+<p><span class="highlight">Five (5) years</span> of design have taught me that creativity isn't luxury—it's a <span class="highlight">language to communicate with the world</span>.</p>
+</div>
+</div>
+<div class="about-photo">
+<div class="profile-image"></div>
+</div>
+</div>
+<!-- Skills Section المحسن مع جميع البرامج والصور -->
+<div class="skills-section">
+<h2 class="skills-title">Skills.</h2>
+<div class="skills-grid">
+<!-- Adobe Illustrator -->
+<div class="skill-item" data-skill="95">
+<div class="skill-logo illustrator"></div>
+<div class="skill-name">Adobe Illustrator</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="95%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">95%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- Adobe Photoshop -->
+<div class="skill-item" data-skill="90">
+<div class="skill-logo photoshop"></div>
+<div class="skill-name">Adobe Photoshop</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="90%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">90%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- Premiere Pro -->
+<div class="skill-item" data-skill="85">
+<div class="skill-logo premiere"></div>
+<div class="skill-name">Premiere Pro</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="85%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">85%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- After Effects -->
+<div class="skill-item" data-skill="75">
+<div class="skill-logo aftereffects"></div>
+<div class="skill-name">After Effects</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="75%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">75%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- Microsoft Office -->
+<div class="skill-item" data-skill="80">
+<div class="skill-logo office"></div>
+<div class="skill-name">Microsoft Office</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="80%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">80%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- AI Tools -->
+<div class="skill-item" data-skill="85">
+<div class="skill-logo ai-tool"></div>
+<div class="skill-name">Artificial Intelligence</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="85%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">85%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- SketchUp - نسبة محدثة 40% -->
+<div class="skill-item" data-skill="40">
+<div class="skill-logo sketchup"></div>
+<div class="skill-name">SketchUp</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="40%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">40%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- Blender - جديد 20% -->
+<div class="skill-item" data-skill="20">
+<div class="skill-logo blender"></div>
+<div class="skill-name">Blender</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="20%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">20%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+<!-- Cinema 4D - جديد 20% -->
+<div class="skill-item" data-skill="20">
+<div class="skill-logo cinema4d"></div>
+<div class="skill-name">Cinema 4D</div>
+<div class="skill-progress-container">
+<div class="skill-progress-bar">
+<div class="skill-progress-fill" data-width="20%" style="width: 0%;"></div>
+</div>
+<div class="skill-percentage-text">20%</div>
+</div>
+<div class="skill-dots">
+<div class="skill-dot active"></div>
+<div class="skill-dot active"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+<div class="skill-dot"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- History Section مع شعارات الشركات -->
+<div class="history-section">
+<h2 class="history-title">History.</h2>
+<div class="timeline">
+<div class="timeline-item">
+<img alt="Freelancer logo" class="timeline-logo" src="free.png"/>
+<div class="timeline-content">
+<div class="timeline-date">2019 - Present</div>
+<div class="timeline-title">Freelance Graphic Designer / Video Editor</div>
+<div class="timeline-company">Independent</div>
+</div>
+</div>
+<div class="timeline-item">
+<img alt="Advision logo" class="timeline-logo" src="advision.png"/>
+<div class="timeline-content">
+<div class="timeline-date">2021 - 2024</div>
+<div class="timeline-title">Graphic Designer</div>
+<div class="timeline-company">Advision El Djazair</div>
+</div>
+</div>
+<div class="timeline-item">
+<img alt="Pro Pub One logo" class="timeline-logo" src="ppo.png"/>
+<div class="timeline-content">
+<div class="timeline-date">2023 - Present</div>
+<div class="timeline-title">Graphic Designer</div>
+<div class="timeline-company">Pro Pub One</div>
+</div>
+</div>
+<div class="timeline-item">
+<img alt="M&amp;K Netherlands logo" class="timeline-logo" src="mk.png"/>
+<div class="timeline-content">
+<div class="timeline-date">2024 - Present</div>
+<div class="timeline-title">Graphic Designer</div>
+<div class="timeline-company">M&amp;K Netherlands</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Education Section -->
+<div class="education-section">
+<h3 class="education-title">Education</h3>
+<p class="education-text">
                     Graduate of the <span class="education-highlight">National Institute specialized in Graphic Arts and Printing Industry</span> (INSIAG, Birmouradrats, Algiers), 
                     holder of the <span class="education-highlight">Algerian Higher National Diploma</span> specialized in <span class="education-highlight">Infographics and Graphic Design</span>.
                 </p>
-            </div>
-        </div>
+</div>
+</div>
+<!-- باقي أقسام Portfolio -->
+<div class="glass-container">
+<div class="portfolio-item" id="posters">
+<img alt="Poster Design" loading="lazy" src="5poster.png"/>
+</div>
+<div class="portfolio-item" id="logos">
+<img alt="Logo Designs" loading="lazy" src="6logos.png"/>
+</div>
+</div>
 
-        <!-- باقي أقسام Portfolio -->
-        <div class="glass-container">
-            <div class="portfolio-item" id="posters">
-                <img src="5poster.png" alt="Poster Design" loading="lazy">
-            </div>
+<!-- Social Media Design Section -->
+<div class="glass-container" id="social-media">
+<div class="social-media-section">
+<h2 class="section-title">Social Media Design</h2>
+<p class="section-subtitle">Creative posts and engaging visual content for social platforms</p>
 
-            <div class="portfolio-item" id="logos">
-                <img src="6logos.png" alt="Logo Designs" loading="lazy">
-            </div>
-        </div>
+<!-- Social Media Gallery -->
+<div class="social-media-gallery">
+<!-- Post Series -->
+<div class="gallery-category">
+<h3 class="category-title">SOCIAL MEDIA POSTS FOR ADVISION EL DJAZAIR</h3>
+<div class="image-grid">
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="100">
+<img src="post1.jpg" alt="Social Media Post 1" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>AL MAWLID NABAWI</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="200">
+<img src="post2.jpg" alt="Social Media Post 2" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>Muharram</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="300">
+<img src="post3.jpg" alt="Social Media Post 3" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>Aid al-Adha</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="400">
+<img src="post4.jpg" alt="Social Media Post 4" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>1 November 1954</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="500">
+<img src="post5.jpg" alt="Social Media Post 5" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>5 July 1962</h4>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-        <!-- Spacers -->
-        <div class="spacer"></div>
-        <div class="spacer"></div>
-        
-        <!-- Footer Spacer -->
-        <div class="footer-spacer"></div>
-
-        <!-- Contact Section -->
-        <div class="contact-section" id="contact">
-            <h2 class="contact-title">Contact</h2>
-            <p class="contact-subtitle">Let's bring your creative vision to life</p>
-            
-            <div class="social-links">
-                <a href="https://www.facebook.com/itsmohaa3" class="social-link facebook" target="_blank" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com/by.moha3" class="social-link instagram" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/393520120226" class="social-link whatsapp" target="_blank" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://behance.net/MohamedTE" class="social-link behance" target="_blank" title="Behance">
-                    <i class="fab fa-behance"></i>
-                </a>
-                <a href="https://linkedin.com/in/mohamedte" class="social-link linkedin" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:taieb.ezzraimi.med@gmail.com" class="social-link email" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-
-            <div class="footer-credit">
+<!-- Nimo Series -->
+<div class="gallery-category">
+<h3 class="category-title">RESULTS OF FREE FIRE NIMO TV TOURNAMENT</h3>
+<div class="image-grid">
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="600">
+<img src="nimo1.jpg" alt="Nimo Design 1" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>FINAL RESULTS</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="700">
+<img src="nimo2.jpg" alt="Nimo Design 2" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>DAY 1 GROUPS A+B</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="800">
+<img src="nimo3.jpg" alt="Nimo Design 3" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>MVP PLAYER</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="900">
+<img src="nimo4.jpg" alt="Nimo Design 4" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>DAY 1 RESULTS</h4>
+<p></p>
+</div>
+</div>
+</div>
+<div class="social-image-item" data-aos="fade-up" data-aos-delay="1000">
+<img src="nimo5.jpg" alt="Nimo Design 5" loading="lazy">
+<div class="image-overlay">
+<div class="overlay-content">
+<h4>FINAL RESULTS 2</h4>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacers -->
+<div class="spacer"></div>
+<div class="spacer"></div>
+<!-- Footer Spacer -->
+<div class="footer-spacer"></div>
+<!-- Contact Section -->
+<div class="contact-section" id="contact">
+<h2 class="contact-title">Contact</h2>
+<p class="contact-subtitle">Let's bring your creative vision to life</p>
+<div class="social-links">
+<a class="social-link facebook" href="https://www.facebook.com/itsmohaa3" target="_blank" title="Facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a class="social-link instagram" href="https://instagram.com/by.moha3" target="_blank" title="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a class="social-link whatsapp" href="https://wa.me/393520120226" target="_blank" title="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a class="social-link behance" href="https://behance.net/MohamedTE" target="_blank" title="Behance">
+<i class="fab fa-behance"></i>
+</a>
+<a class="social-link linkedin" href="https://linkedin.com/in/mohamedte" target="_blank" title="LinkedIn">
+<i class="fab fa-linkedin-in"></i>
+</a>
+<a class="social-link email" href="mailto:taieb.ezzraimi.med@gmail.com" title="Email">
+<i class="fas fa-envelope"></i>
+</a>
+</div>
+<div class="footer-credit">
                 DESIGNED BY Mohamed Taieb-Ezzraimi
             </div>
-        </div>
-    </div>
-
-    <script>
+</div>
+</div>
+<script>
         // إصلاح مشكلة التحميل - حلول متعددة
         function hideLoadingOverlay() {
             const overlay = document.getElementById('loadingOverlay');
@@ -2526,7 +4916,7 @@
 
         // Update timeline navigation
         function updateTimelineNav() {
-            const sections = ['home', 'about', 'posters', 'logos', 'contact'];
+            const sections = ['home', 'about', 'posters', 'logos', 'social-media', 'contact'];
             const timelineItems = document.querySelectorAll('.timeline-item-nav');
             
             sections.forEach((sectionId, index) => {
@@ -2658,6 +5048,633 @@
             }
         });
     </script>
+<script>
+        // إصلاح مشكلة التحميل - حلول متعددة
+        function hideLoadingOverlay() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) {
+                overlay.classList.add('hidden');
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 600);
+            }
+        }
 
+        // تشغيل متعدد لضمان الإخفاء
+        window.addEventListener('load', hideLoadingOverlay);
+        setTimeout(hideLoadingOverlay, 2500); // حل احتياطي
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hideLoadingOverlay, 1500);
+        });
 
-</body></html>
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            
+            mobileMenu.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            
+            mobileMenu.classList.remove('active');
+            hamburgerBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(event.target) && 
+                !hamburgerBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        }
+
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        // Back to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Coming soon alert for empty portfolio items
+        function showComingSoon(itemName) {
+            const notification = document.createElement('div');
+            notification.textContent = `${itemName} - Coming Soon! 🎨`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+                backdrop-filter: blur(20px);
+                padding: 20px 30px;
+                border-radius: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+                color: #2d3436;
+                font-weight: 500;
+                z-index: 10000;
+                opacity: 0;
+                transition: all 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '1';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 2000);
+        }
+
+        // تحسين تأثير الكتابة
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    element.classList.add('typing-text');
+                }
+            }, speed);
+        }
+
+        // انيميشن شرائح التقدم المحسن
+        function animateProgressBars() {
+            const progressFills = document.querySelectorAll('.skill-progress-fill');
+            
+            progressFills.forEach((fill, index) => {
+                const targetWidth = fill.getAttribute('data-width');
+                
+                setTimeout(() => {
+                    fill.style.width = targetWidth;
+                }, index * 200);
+            });
+        }
+
+        // انيميشن النقاط للمهارات
+        function animateSkillDots() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            
+            skillItems.forEach((item, itemIndex) => {
+                const dots = item.querySelectorAll('.skill-dot');
+                const activeDots = item.querySelectorAll('.skill-dot.active');
+                
+                setTimeout(() => {
+                    activeDots.forEach((dot, dotIndex) => {
+                        setTimeout(() => {
+                            dot.style.animation = `dotPulse 1.5s ease-in-out ${dotIndex * 0.1}s infinite`;
+                        }, dotIndex * 100);
+                    });
+                }, itemIndex * 300);
+            });
+        }
+
+        // تحسين انيميشن Timeline
+        function animateTimelineItems() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 1000 + (index * 150));
+            });
+        }
+
+        // Update timeline navigation
+        function updateTimelineNav() {
+            const sections = ['home', 'about', 'posters', 'logos', 'social-media', 'contact'];
+            const timelineItems = document.querySelectorAll('.timeline-item-nav');
+            
+            sections.forEach((sectionId, index) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+                    
+                    if (isVisible) {
+                        timelineItems.forEach(item => item.classList.remove('active'));
+                        if (timelineItems[index]) {
+                            timelineItems[index].classList.add('active');
+                        }
+                    }
+                }
+            });
+        }
+
+        // Show/hide back to top button
+        function toggleBackToTop() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        }
+
+        // Intersection Observer للمهارات
+        function setupSkillsObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.target.classList.contains('skills-section')) {
+                        setTimeout(() => {
+                            animateProgressBars();
+                            animateSkillDots();
+                        }, 500);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            observer.observe(document.querySelector('.skills-section'));
+        }
+
+        // Intersection Observer للتايم لاين
+        function setupTimelineObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.target.classList.contains('history-section')) {
+                        setTimeout(animateTimelineItems, 300);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(document.querySelector('.history-section'));
+        }
+
+        // Intersection Observer for portfolio items
+        function setupPortfolioObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Add scroll event listeners
+        window.addEventListener('scroll', function() {
+            updateScrollProgress();
+            updateTimelineNav();
+            toggleBackToTop();
+        });
+
+        // Initialize all functions
+        document.addEventListener('DOMContentLoaded', () => {
+            // تشغيل تأثير الكتابة
+            const titleElement = document.querySelector('.typing-text');
+            if (titleElement) {
+                const titleText = titleElement.textContent;
+                setTimeout(() => {
+                    typeWriter(titleElement, titleText, 45);
+                }, 800);
+            }
+
+            // تفعيل جميع المراقبين
+            setupSkillsObserver();
+            setupTimelineObserver();
+            setupPortfolioObserver();
+
+            // معالج أخطاء الصور
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    console.log('Image failed to load:', this.src);
+                };
+            });
+        });
+
+        // تحسين الأداء للأجهزة المحمولة
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.bg-shape').forEach(shape => {
+                shape.style.opacity = '0.01';
+            });
+        }
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                window.scrollTo(0, window.pageYOffset);
+                closeMobileMenu();
+            }, 100);
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+            }
+            // ===============================================
+// SMOOTH SCROLL WITH EASING - خفة قصوى للموقع
+// ===============================================
+
+// 1. CSS Scroll Behavior العام
+document.documentElement.style.scrollBehavior = 'smooth';
+
+// 2. تحسين الأداء مع RequestAnimationFrame
+let isScrolling = false;
+let scrollTimeout;
+
+// 3. Easing Functions - دوال التسارع والتباطؤ
+function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+}
+
+function easeInOutQuart(t) {
+    return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
+}
+
+// 4. Custom Smooth Scroll للنقرات والتنقل
+function smoothScrollTo(target, duration = 1200) {
+    const targetElement = document.getElementById(target);
+    if (!targetElement) return;
+
+    const targetPosition = targetElement.offsetTop - 100; // مع مساحة 100px من الأعلى
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animateScroll(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+        
+        window.scrollTo(0, startPosition + distance * ease);
+        
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+    
+    requestAnimationFrame(animateScroll);
+}
+
+// 5. تحسين scroll event listener مع throttling
+let lastScrollY = window.pageYOffset;
+let ticking = false;
+
+function updateScroll() {
+    lastScrollY = window.pageYOffset;
+    
+    // تحديث progress bar
+    updateScrollProgress();
+    
+    // تحديث timeline navigation
+    updateTimelineNav();
+    
+    // تحديث back to top button
+    toggleBackToTop();
+    
+    // إضافة parallax effect للعناصر الخلفية
+    updateParallaxElements();
+    
+    ticking = false;
+}
+
+function updateParallaxElements() {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.bg-shape');
+    
+    parallaxElements.forEach((element, index) => {
+        const speed = (index + 1) * 0.1;
+        const yPos = -(scrolled * speed);
+        const rotation = scrolled * 0.02 * (index + 1);
+        
+        element.style.transform = `translate3d(0, ${yPos}px, 0) rotate(${rotation}deg)`;
+    });
+}
+
+// 6. Event listener محسن للسكرول
+window.addEventListener('scroll', function(e) {
+    if (!ticking) {
+        requestAnimationFrame(updateScroll);
+        ticking = true;
+    }
+}, { passive: true });
+
+// 7. تحسين scrollToSection function
+function scrollToSection(sectionId) {
+    // إلغاء الطريقة القديمة واستخدام الطريقة المحسنة
+    smoothScrollTo(sectionId, 800);
+    
+    // إغلاق القائمة المحمولة إذا كانت مفتوحة
+    closeMobileMenu();
+}
+
+// 8. تحسين scrollToTop function
+function scrollToTop() {
+    const duration = 1000;
+    const startPosition = window.pageYOffset;
+    let startTime = null;
+
+    function animateScroll(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutQuart(progress);
+        
+        window.scrollTo(0, startPosition * (1 - ease));
+        
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+    
+    requestAnimationFrame(animateScroll);
+}
+
+// 9. Momentum Scrolling لـ iOS/Safari
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.style.webkitOverflowScrolling = 'touch';
+    document.body.style.overflowScrolling = 'touch';
+});
+
+// 10. تأثير Inertia Scrolling متقدم
+class SmoothScroll {
+    constructor() {
+        this.scrollY = window.pageYOffset;
+        this.targetScrollY = this.scrollY;
+        this.ease = 0.1;
+        this.isRunning = false;
+        
+        this.bindEvents();
+    }
+    
+    bindEvents() {
+        window.addEventListener('scroll', this.updateTargetScrollY.bind(this));
+    }
+    
+    updateTargetScrollY() {
+        this.targetScrollY = window.pageYOffset;
+        
+        if (!this.isRunning) {
+            this.startAnimation();
+        }
+    }
+    
+    startAnimation() {
+        this.isRunning = true;
+        this.animate();
+    }
+    
+    animate() {
+        const diff = this.targetScrollY - this.scrollY;
+        
+        if (Math.abs(diff) > 0.1) {
+            this.scrollY += diff * this.ease;
+            
+            // تحديث العناصر بناءً على الموضع الجديد
+            this.updateElements();
+            
+            requestAnimationFrame(this.animate.bind(this));
+        } else {
+            this.isRunning = false;
+            this.scrollY = this.targetScrollY;
+        }
+    }
+    
+    updateElements() {
+        // تحديث العناصر التي تحتاج لتأثيرات parallax أو انيميشن
+        const progress = this.scrollY / (document.body.scrollHeight - window.innerHeight);
+        
+        // تحديث عناصر الخلفية
+        document.querySelectorAll('.bg-shape').forEach((element, index) => {
+            const speed = (index + 1) * 0.05;
+            const yPos = this.scrollY * speed;
+            element.style.transform = `translate3d(0, ${-yPos}px, 0)`;
+        });
+    }
+}
+
+// 11. تفعيل النظام المحسن للسكرول
+// const smoothScrollInstance = new SmoothScroll();
+
+// 12. تحسين CSS لدعم السكرول الانسيابي
+const smoothScrollCSS = `
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+    }
+    
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: none;
+    }
+    
+    .about-section, 
+    .glass-container, 
+    .contact-section {
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+    
+    .timeline-item,
+    .skill-item,
+    .portfolio-item {
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+`;
+
+// إضافة CSS للرأس
+const styleSheet = document.createElement('style');
+styleSheet.textContent = smoothScrollCSS;
+document.head.appendChild(styleSheet);
+
+// 13. تحسين Navigation clicks
+document.addEventListener('DOMContentLoaded', function() {
+    // تحسين جميع روابط التنقل
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            smoothScrollTo(targetId, 800);
+        });
+    });
+    
+    // تحسين Timeline Navigation
+    document.querySelectorAll('.timeline-item-nav').forEach((item, index) => {
+        item.addEventListener('click', function() {
+            const sections = ['home', 'about', 'posters', 'logos', 'contact'];
+            smoothScrollTo(sections[index], 700);
+        });
+    });
+});
+
+// 14. Performance optimizations
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// منع التأخير في iOS
+document.addEventListener('touchstart', function() {}, { passive: true });
+
+console.log('🚀 Ultra-smooth scrolling initialized!');
+// ===============================================
+// AUTO-ANIMATE TIMELINE ITEMS - ظهور تلقائي
+// ===============================================
+
+// 1. إزالة الانيميشن المرتبط بالإنتراسكشن أوبزرفر واستبداله بهذا
+function autoAnimateTimelineItems() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item, index) => {
+        // تأخير تدريجي لكل عنصر
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+            item.style.transition = 'all 0.6s ease-out';
+        }, 800 + (index * 200)); // بداية بعد 800ms ثم كل 200ms
+    });
+}
+
+// 2. تشغيل الانيميشن عند تحميل الصفحة
+window.addEventListener('load', function() {
+    setTimeout(autoAnimateTimelineItems, 1500); // بداية بعد 1.5 ثانية من التحميل
+});
+
+// 3. تشغيل إضافي عند وصول المستخدم للقسم (احتياطي)
+function setupAutoTimelineObserver() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.classList.contains('history-section')) {
+                // التأكد من أن العناصر ظهرت، وإذا لم تظهر بعد، تشغيل الانيميشن
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                const isAnyItemHidden = Array.from(timelineItems).some(item => 
+                    item.style.opacity === '0' || item.style.opacity === ''
+                );
+                
+                if (isAnyItemHidden) {
+                    autoAnimateTimelineItems();
+                }
+                
+                observer.unobserve(entry.target); // تشغيل مرة واحدة فقط
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const historySection = document.querySelector('.history-section');
+    if (historySection) {
+        observer.observe(historySection);
+    }
+}
+
+// 4. تشغيل المراقب الاحتياطي
+document.addEventListener('DOMContentLoaded', setupAutoTimelineObserver);
+
+// 5. تحسين إضافي - تشغيل فوري إذا كان القسم مرئياً عند التحميل
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const historySection = document.querySelector('.history-section');
+        if (historySection) {
+            const rect = historySection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isVisible) {
+                autoAnimateTimelineItems();
+            }
+        }
+    }, 2000); // فحص بعد ثانيتين من التحميل
+});
+
+        });
+    </script></body></html>
