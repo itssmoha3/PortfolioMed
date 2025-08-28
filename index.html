@@ -4206,6 +4206,316 @@
                 height: 120px;
             }
         }
+        /* قسم اللوغوهات العام */
+.logos-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logos-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+/* مجموعات اللوغوهات */
+.logos-group {
+  margin-bottom: 60px;
+}
+
+.logos-group h3 {
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* شبكة اللوغوهات العادية */
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* شبكة اللوغوهات الطويلة */
+.logos-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* مربعات اللوغو */
+.logo-item {
+  position: relative;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+/* اللوغوهات الطويلة */
+.logo-item.vertical {
+  width: 80%;
+  max-width: 600px;
+  min-height: 150px;
+}
+
+/* تأثير الهوفر */
+.logo-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* قسم اللوغوهات العام */
+.logos-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logos-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+/* إزالة عناوين المجموعات */
+.logos-group h3 {
+  display: none;
+}
+
+/* شبكة اللوغوهات المُحدثة - أكبر حجماً */
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* مربعات اللوغو أكبر مع خلفية بيضاء منفصلة */
+.logo-item {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  border: 2px solid transparent;
+}
+
+/* اللوغوهات الطويلة أكبر */
+.logo-item.vertical {
+  grid-column: span 1;
+  min-height: 320px;
+  padding: 50px;
+}
+
+/* تأثير الهوفر محسّن */
+.logo-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  border: 2px solid #3498db;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* رقم اللوغو أكبر */
+.logo-number {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 50%;
+  min-width: 35px;
+  height: 35px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* صور اللوغو أكبر مع خلفية منفصلة */
+.logo-item img {
+  max-width: 200px;
+  max-height: 140px;
+  width: auto;
+  height: auto;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+  background: transparent;
+  padding: 20px;
+  border-radius: 15px;
+  background: #fafbfc;
+  border: 1px solid #e9ecef;
+}
+
+.logo-item.vertical img {
+  max-width: 300px;
+  max-height: 180px;
+  padding: 25px;
+}
+
+.logo-item:hover img {
+  transform: scale(1.08);
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* إزالة أسماء اللوغوهات */
+.logo-name {
+  display: block;
+}
+
+/* تأثير التكبير المُحسن والأكبر */
+.logo-item.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2.5);
+  z-index: 1000;
+  min-height: auto;
+  padding: 60px;
+  border-radius: 25px;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.4);
+  border: 3px solid #3498db;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.logo-item.zoomed img {
+  max-width: 600px;
+  max-height: 400px;
+  padding: 30px;
+  background: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 20px;
+}
+
+/* خلفية مظلمة محسنة */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* رسوم متحركة محسنة */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+  50% {
+    box-shadow: 0 15px 50px rgba(52, 152, 219, 0.4);
+  }
+}
+
+.logo-item:hover {
+  animation: pulse 2s infinite;
+}
+
+/* التجاوب المحسن للهاتف */
+@media (max-width: 768px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .logo-item {
+    padding: 30px;
+    min-height: 220px;
+  }
+  
+  .logo-item img {
+    max-width: 140px;
+    max-height: 100px;
+    padding: 15px;
+  }
+  
+  .logo-item.zoomed {
+    transform: translate(-50%, -50%) scale(1.8);
+    padding: 40px;
+  }
+  
+  .logo-item.zoomed img {
+    max-width: 300px;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .logo-item {
+    min-height: 200px;
+  }
+  
+  .logo-item.zoomed {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
     </style></head>
 <body>
 <!-- خلفية متحركة -->
@@ -4308,7 +4618,7 @@
 <div class="name-section">
 <h1 class="name">Mohamed Taieb-Ezzraimi</h1>
 <p class="title-description">
-<span class="typing-text">Visual communicator from the heart of Algeria , based in Milano, Italy</span>
+<span class="typing-text">Visual communicator from the heart of Algeria, based in Milano, Italy</span>
 </p>
 </div>
 <div class="bio-text">
@@ -4583,7 +4893,7 @@
 <div class="education-section">
 <h3 class="education-title">Education</h3>
 <p class="education-text">
-                    Graduate of the <span class="education-highlight">National Institute specialized in Graphic Arts and Printing Industry</span> (INSIAG, Birmouradrais, Algiers), 
+                    Graduate of the <span class="education-highlight">National Institute specialized in Graphic Arts and Printing Industry</span> (INSIAG, Birmouradrats, Algiers), 
                     holder of the <span class="education-highlight">Algerian Higher National Diploma</span> specialized in <span class="education-highlight">Infographics and Graphic Design</span>.
                 </p>
 </div>
@@ -4594,7 +4904,101 @@
 <img alt="Poster Design" loading="lazy" src="5poster.png"/>
 </div>
 <div class="portfolio-item" id="logos">
-<img alt="Logo Designs" loading="lazy" src="6logos.png"/>
+   <section class="logos-section">
+  <div class="container">
+    <h2>LOGOS</h2>
+    <div class="logos-grid">
+        <div class="logo-number">1</div>
+        <img src="Clients logos/Client-1.svg" alt="PRO PUB ONE">
+        <div class="logo-number">2</div>
+        <img src="Clients logos/Client-2.svg" alt="JUMPING RAIN INC.">
+        <div class="logo-number">3</div>
+        <img src="Clients logos/Client-3.svg" alt="ALCONNECT">
+        <div class="logo-number">4</div>
+        <img src="Clients logos/Client-4.svg" alt="SIR">
+        <div class="logo-number">5</div>
+        <img src="Clients logos/Client-5.svg" alt="PRESTI GO TRAVEL">
+        <div class="logo-number">6</div>
+        <img src="Clients logos/Client-6.svg" alt="RR SIMULATOR">
+        <div class="logo-number">7</div>
+        <img src="Clients logos/Client-7.svg" alt="WATCH 4K">
+        <div class="logo-number">8</div>
+        <img src="Clients logos/Client-8.svg" alt="RANIA TRAVEL">
+        <div class="logo-number">9</div>
+        <img src="Clients logos/Client-9.svg" alt="GSSE">
+        <div class="logo-number">10</div>
+        <img src="Clients logos/Client-10.svg" alt="AL-IHSAN ASSOCIATION">
+        <div class="logo-number">11</div>
+        <img src="Clients logos/Client-11.svg" alt="AL-QALAM">
+        <div class="logo-number">12</div>
+        <img src="Clients logos/Client-12.svg" alt="IZ PHONE">
+        <div class="logo-number">13</div>
+        <img src="Clients logos/Client-13.svg" alt="NUMBER ONE GSM">
+        <div class="logo-number">14</div>
+        <img src="Clients logos/Client-14.svg" alt="KAB STORE">
+        <div class="logo-number">15</div>
+        <img src="Clients logos/Client-15.svg" alt="SESAME CLOTHING">
+        <div class="logo-number">16</div>
+        <img src="Clients logos/Client-16.svg" alt="GAMEPHONE">
+        <div class="logo-number">17</div>
+        <img src="Clients logos/Client-17.svg" alt="E.G.T.B.P.H">
+        <div class="logo-number">18</div>
+        <img src="Clients logos/Client-18.svg" alt="ZONE MOBILE">
+        <div class="logo-number">19</div>
+        <img src="Clients logos/Client-19.svg" alt="NOOR LOCATION">
+        <div class="logo-number">20</div>
+        <img src="Clients logos/Client-20.svg" alt="HAIRMANA LUXE">
+        <div class="logo-number">21</div>
+        <img src="Clients logos/Client-21.svg" alt="MODE XL">
+        <div class="logo-number">22</div>
+        <img src="Clients logos/Client-22.svg" alt="RK MARKETING">
+        <div class="logo-number">23</div>
+        <img src="Clients logos/Client-23.svg" alt="LC BEAUTY">
+        <div class="logo-number">24</div>
+        <img src="Clients logos/Client-24.svg" alt="HUNGRY PANDA">
+        <div class="logo-number">25</div>
+        <img src="Clients logos/Client-25.svg" alt="AYOUB SAT">
+        <div class="logo-number">26</div>
+        <img src="Clients logos/Client-26.svg" alt="DEHLAMS">
+        <div class="logo-number">27</div>
+        <img src="Clients logos/Client-27.svg" alt="SAMEN STERK">
+        <div class="logo-number">28</div>
+        <img src="Clients logos/Client-28.svg" alt="BIOGENAL PHARMA">
+        <div class="logo-number">29</div>
+        <img src="Clients logos/Client-29.svg" alt="ADEM GYM">
+        <div class="logo-number">30</div>
+        <img src="Clients logos/Client-30.svg" alt="IMD LABORATOIRE">
+        <div class="logo-number">31</div>
+        <img src="Clients logos/Client-31.svg" alt="VALLE CNY SUPERMERCATO">
+        <div class="logo-number">32</div>
+        <img src="Clients logos/Client-32.svg" alt="COOKER BOY">
+        <div class="logo-number">33</div>
+        <img src="Clients logos/Client-33.svg" alt="LAKA FOOD">
+        <div class="logo-number">34</div>
+        <img src="Clients logos/Client-34.svg" alt="SWEET FACE">
+        <div class="logo-number">35</div>
+        <img src="Clients logos/Client-35.svg" alt="ATLAS DELICATESSEN">
+        <div class="logo-number">36</div>
+        <img src="Clients logos/Client-36.svg" alt="IDOL FOURNITURE">
+        <div class="logo-number">37</div>
+        <img src="Clients logos/Client-37.svg" alt="TITOU & MINOU">
+        <div class="logo-number">38</div>
+        <img src="Clients logos/Client-38.svg" alt="AL-FIKR LIBRARY">
+        <div class="logo-number">39</div>
+        <img src="Clients logos/Client-39.svg" alt="GVA VERRE ET ALUMINIUM">
+        </div>
+        <div class="logo-number">40</div>
+        <img src="Clients logos/Client-40.svg" alt="ENERCON">
+        <div class="logo-number">41</div>
+        <img src="Clients logos/Client-41.svg" alt="SEER">
+        <div class="logo-number">42</div>
+        <img src="Clients logos/Client-42.svg" alt="WINNER ELECTRONIC">
+      </div>
+    </div>
+  </div>
+</section>
+
+
 </div>
 </div>
 
@@ -5364,7 +5768,8 @@
             if (event.key === 'Escape') {
                 closeMobileMenu();
             }
-            // ===============================================
+        });
+        // ===============================================
 // SMOOTH SCROLL WITH EASING - خفة قصوى للموقع
 // ===============================================
 
@@ -5684,7 +6089,89 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 2000); // فحص بعد ثانيتين من التحميل
 });
 
-        });
-    </script></body></html>
-
-
+document.addEventListener('DOMContentLoaded', function() {
+  const logoItems = document.querySelectorAll('.logo-item');
+  let isZoomed = false;
+  
+  logoItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      
+      if (isZoomed) return; // منع النقر المتعدد
+      
+      // إنشاء الخلفية المظلمة
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      document.body.appendChild(overlay);
+      
+      // تكبير اللوغو مع تأخير للحصول على حركة سلسة
+      setTimeout(() => {
+        overlay.classList.add('active');
+        this.classList.add('zoomed');
+        document.body.style.overflow = 'hidden';
+        isZoomed = true;
+      }, 50);
+      
+      // وظيفة الإغلاق
+      const closeZoom = (e) => {
+        e.stopPropagation();
+        
+        this.classList.remove('zoomed');
+        overlay.classList.remove('active');
+        
+        setTimeout(() => {
+          if (overlay.parentNode) {
+            overlay.remove();
+          }
+          document.body.style.overflow = 'auto';
+          isZoomed = false;
+        }, 400);
+      };
+      
+      // إغلاق عند النقر على الخلفية
+      overlay.addEventListener('click', closeZoom);
+      
+      // إغلاق عند النقر على اللوغو المكبر
+      const zoomedClickHandler = (e) => {
+        closeZoom(e);
+        this.removeEventListener('click', zoomedClickHandler);
+      };
+      
+      setTimeout(() => {
+        this.addEventListener('click', zoomedClickHandler);
+      }, 500);
+      
+      // إغلاق بالضغط على Escape
+      const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+          closeZoom(e);
+          document.removeEventListener('keydown', handleEscape);
+        }
+      };
+      document.addEventListener('keydown', handleEscape);
+    });
+  });
+  
+  // تأثير الظهور التدريجي
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.animation = 'slideInUp 0.8s ease forwards';
+        }, index * 100);
+      }
+    });
+  }, observerOptions);
+  
+  logoItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(50px)';
+    observer.observe(item);
+  });
+});
+ </script></body></html>
